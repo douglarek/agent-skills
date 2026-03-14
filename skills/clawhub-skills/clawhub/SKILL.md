@@ -1,5 +1,6 @@
 ---
 name: clawhub
+version: "1.0.1"
 description: "Download and install skills from ClawHub (https://clawhub.ai). Use when user wants to browse, search, or download skills from the ClawHub skill registry."
 ---
 

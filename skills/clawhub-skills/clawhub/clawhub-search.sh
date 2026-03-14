@@ -7,7 +7,7 @@
 set -e
 
 API_URL="https://wry-manatee-359.convex.site/api/v1/skills"
-SKILLS_DIR="$HOME/.pi/agent/skills"
+SKILLS_DIR="$HOME/.agents/skills/clawhub-skills"
 
 # Colors for output
 RED='\033[0;31m'
