@@ -44,7 +44,7 @@ function getWsUrl() {
   ];
   // Linux: ~/.config/<name>/DevToolsActivePort
   const linuxBrowsers = [
-    'google-chrome', 'google-chrome-beta', 'chromium',
+    'google-chrome', 'google-chrome-stable', 'google-chrome-beta', 'chromium',
     'vivaldi', 'vivaldi-snapshot',
     'BraveSoftware/Brave-Browser', 'microsoft-edge',
   ];
