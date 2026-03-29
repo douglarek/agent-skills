@@ -21,7 +21,7 @@ Use semantic commit format: `<type>(<scope>): <subject>`
 
 ## Workflow Rules
 
-1. **Language**: Use English only for git commit messages.
+1. **Language (MANDATORY)**: ALL git commit messages MUST be in English only. Never use Chinese or any other language for commit messages. This is a strict requirement that must be enforced without exception.
 
 2. **Force Push**: Always confirm before `git push --force`.
 
