@@ -5,30 +5,89 @@ description: Git commit message conventions and workflow rules. Use when making 
 
 # Git Commit Conventions
 
-## Commit Message Format
+## Rule Priority
 
-Use semantic commit format: `<type>(<scope>): <subject>`
+1. **Hard Rules (MUST)**
+2. **Recommended Rules (SHOULD)**
 
-### Commit Types
+---
+
+## Hard Rules (MUST)
+
+### 1) Commit Message Language
+
+- All commit messages must be in **English only**.
+
+### 2) Commit Message Format
+
+Use Conventional Commit style:
+
+```text
+<type>(<scope>): <subject>
+```
+
+- `<scope>` is recommended; omit only when no clear scope exists.
+- `<subject>` must be concise, imperative mood, no trailing period.
+
+Examples:
+
+- `feat(blog): add Hugo post translation checklist`
+- `fix(ci): handle missing npm cache`
+- `docs: update contribution guide`
+
+### 3) Allowed Types
 
 - `feat`: add new feature
-- `fix`: correct bug
-- `docs`: update documentation
-- `style`: format code (no functional changes)
-- `refactor`: restructure code
-- `test`: add/modify tests
-- `chore`: update build tasks
+- `fix`: bug fix
+- `docs`: documentation only
+- `style`: formatting/style only (no logic change)
+- `refactor`: code restructuring (no behavior change)
+- `test`: tests added/updated
+- `chore`: tooling/build/maintenance tasks
 
-## Workflow Rules
+### 4) Breaking Changes
 
-1. **Language (MANDATORY)**: ALL git commit messages MUST be in English only. Never use Chinese or any other language for commit messages. This is a strict requirement that must be enforced without exception.
+For breaking changes:
 
-2. **Force Push**: Always confirm before `git push --force`.
+- add `!` after type/scope, and/or
+- include `BREAKING CHANGE:` footer in commit body.
 
-3. **Sign-off**: Include `--signoff` flag with all commits.
+Example:
 
-4. **Consolidation**: Consolidate changes into meaningful commits.
+```text
+feat(api)!: rename auth endpoint
 
-5. **Push Confirmation**: After making a local commit, ALWAYS prompt the user whether they want to push to the remote repository.
+BREAKING CHANGE: /v1/login is replaced by /v2/auth/login
+```
 
-6. **Display URL**: After successfully pushing to remote, display the repository's access URL.
+### 5) Push Safety
+
+- Always ask for confirmation before `git push --force` (or force-with-lease).
+- After local commit, always ask whether to push to remote.
+- After successful push, display repository URL (or remote URL if repo URL is unavailable).
+
+### 6) Commit Granularity
+
+- Consolidate changes into meaningful, reviewable commits.
+- Do not mix unrelated changes in one commit.
+
+---
+
+## Recommended Rules (SHOULD)
+
+- Keep subject length around **<= 72 characters**.
+- Put rationale/details in commit body when needed.
+- Group related file changes before committing.
+- Prefer `--force-with-lease` over `--force` when force push is truly needed.
+
+---
+
+## Quick Checklist
+
+- [ ] Commit message is English-only
+- [ ] Message matches Conventional Commit format
+- [ ] Type is valid (`feat|fix|docs|style|refactor|test|chore`)
+- [ ] Breaking change marked properly (if applicable)
+- [ ] User confirmed before any force push
+- [ ] User asked whether to push after local commit
+- [ ] Remote/repository URL shown after push
